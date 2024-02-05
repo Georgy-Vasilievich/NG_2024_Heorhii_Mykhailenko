@@ -1,41 +1,33 @@
 #include <iostream>
 
-using namespace std;
+using std::endl;
+using std::cout;
+using std::cin;
 
-int main()
-{
-    unsigned int height = 0;
+int main() {
+    unsigned int height;
 
     cout << "Enter height: ";
     cin >> height;
 
-    for (unsigned int iteration = 0; iteration <= height; ++iteration) {
-        unsigned int spaces;
-        unsigned int asterisks;
+    if (height > 0) {
+        for (unsigned int iteration = 0; iteration < height; ++iteration) {
+            for (unsigned int spaces = 0; spaces < height - iteration - 1; ++spaces) {
+                cout << " ";
+            }
 
-        if (height == 0) {
-            spaces = 0;
-            asterisks = 1;
-        } else if (iteration == height) {
-            spaces = height - 1;
-            asterisks = 1;
-        } else {
-            spaces = height - iteration - 1;
-            asterisks = 1 + (iteration * 2);
+            for (unsigned int asterisks = 0; asterisks < (2 * iteration + 1); ++asterisks) {
+                cout << "*";
+            }
+            cout << endl;
         }
 
-        while (spaces) {
+        for (unsigned int spaces = 0; spaces < height - 1; ++spaces) {
             cout << " ";
-            --spaces;
         }
-
-        while (asterisks) {
-            cout << "*";
-            --asterisks;
-        }
-
-        cout << endl;
     }
+
+    cout << "*" << endl;
 
     return 0;
 }
