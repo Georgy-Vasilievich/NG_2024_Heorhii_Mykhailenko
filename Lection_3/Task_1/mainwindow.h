@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#define ALPHABET_SIZE 26
 #define ASCII_UPPERCASE 65
 #define ASCII_LOWERCASE 97
 

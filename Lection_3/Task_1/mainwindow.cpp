@@ -53,7 +53,7 @@ void MainWindow::Crypt()
 
             unsigned int shift = input[character].isUpper() ? ASCII_UPPERCASE : ASCII_LOWERCASE;
 
-            input[character] = QChar((26 + int(input[character].toLatin1() - shift - (key * (decrypt ? 1 : -1))) % 26) % 26 + shift);
+            input[character] = QChar((ALPHABET_SIZE + int(input[character].toLatin1() - shift - (key * (decrypt ? 1 : -1))) % ALPHABET_SIZE) % ALPHABET_SIZE + shift);
     }
 
     ui->editOutput->setText(input);
