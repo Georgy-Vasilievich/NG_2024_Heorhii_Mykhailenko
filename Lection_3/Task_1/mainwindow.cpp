@@ -43,7 +43,7 @@ void MainWindow::Crypt()
     if (!decrypt && !ui->buttonEncrypt->isChecked())
         return;
 
-    if (key > 26)
+    if (key >= ALPHABET_SIZE)
         return;
 
     for(int character = 0; character < input.length(); ++character)
