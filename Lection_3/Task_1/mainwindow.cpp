@@ -51,10 +51,9 @@ void MainWindow::Crypt()
             if((input[character] < 'A' || input[character] > 'Z') && (input[character] < 'a' || input[character] > 'z'))
                 continue;
 
-            if (input[character].isUpper())
-                input[character] = QChar((26 + int(input[character].toLatin1() - ASCII_UPPERCASE - (key * (decrypt ? 1 : -1))) % 26) % 26 + ASCII_UPPERCASE);
-            else
-                input[character] = QChar((26 + int(input[character].toLatin1() - ASCII_LOWERCASE - (key * (decrypt ? 1 : -1))) % 26) % 26 + ASCII_LOWERCASE);
+            unsigned int shift = input[character].isUpper() ? ASCII_UPPERCASE : ASCII_LOWERCASE;
+
+            input[character] = QChar((26 + int(input[character].toLatin1() - shift - (key * (decrypt ? 1 : -1))) % 26) % 26 + shift);
     }
 
     ui->editOutput->setText(input);
